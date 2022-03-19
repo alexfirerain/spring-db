@@ -20,17 +20,17 @@ public class CommandLineApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet("select * from things");
+        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet("select * from CUSTOMERS");
         while (sqlRowSet.next())
             System.out.printf("№%s это %s%n",
                     sqlRowSet.getInt("id"),
                     sqlRowSet.getString("name"));
 
-        Thing thing = jdbcTemplate.queryForObject("select * from things where id = ?",
+        Thing thing = jdbcTemplate.queryForObject("select * from CUSTOMERS id = ?",
                 (rs, rowNum) -> new Thing(rs.getInt("id"), rs.getString("name")), 2);
         System.out.println(thing);
 
-        Thing something = namedParameterJdbcTemplate.queryForObject("select * from things where id = :id",
+        Thing something = namedParameterJdbcTemplate.queryForObject("select * from CUSTOMERS where id = :id",
                 Map.of("id", 3),
                 (rs, rowNum) -> new Thing(rs.getInt("id"), rs.getString("name")));
         System.out.println(something);

@@ -1,7 +1,5 @@
-# create database enterprise;
 # create schema enterprise;
-
-create table CUSTOMERS
+create table customers
 (
     id  integer primary key auto_increment,
     name    varchar(255),
@@ -10,7 +8,7 @@ create table CUSTOMERS
     phone_number varchar(63)
 );
 
-create table ORDERS
+create table orders
 (
     id integer primary key auto_increment,
     date date,

@@ -1,7 +1,7 @@
-databaseChangeLog:
-  - include:
-      file: migrations/001-schema.sql
-      relativeToChangelogFile: yes
-  - include:
-      file: migrations/002-sample.xml
-      relativeToChangelogFile: yes
+#databaseChangeLog:
+#  - include:
+#      file: migrations/001-schema.sql
+#      relativeToChangelogFile: yes
+#  - include:
+#      file: migrations/002-sample.xml
+#      relativeToChangelogFile: yes

@@ -19,7 +19,7 @@ public class CommandLineApp implements CommandLineRunner {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet("select * from customers");
         while (sqlRowSet.next())
             System.out.printf("№%s это %s%n",

@@ -1,4 +1,8 @@
-### Ame's product
+### Ame's products
 GET http://localhost:8080/products/fetch-product?name=Ame
+Accept: application/json
+
+### Bame's products
+GET http://localhost:8080/products/fetch-product?name=Bame
 Accept: application/json
 

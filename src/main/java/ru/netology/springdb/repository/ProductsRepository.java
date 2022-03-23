@@ -24,7 +24,7 @@ public class ProductsRepository {
     public List<String> getProductName(String customersName) {
         return namedParameterJdbcTemplate.queryForList(productByNameRequest,
                 Map.of("name", customersName),
-                (rs, rowNum) -> rs.getString("product_name"));
+                String.class);
     }
 
     private static String read(String scriptFileName) {

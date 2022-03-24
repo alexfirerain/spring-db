@@ -6,3 +6,22 @@ Accept: application/json
 GET http://localhost:8080/products/fetch-product?name=Bame
 Accept: application/json
 
+### Game's products
+GET http://localhost:8080/products/fetch-product?name=Game
+Accept: application/json
+
+### Came's products
+GET http://localhost:8080/products/fetch-product?name=Came
+Accept: application/json
+
+### Dame's products
+GET http://localhost:8080/products/fetch-product?name=Dame
+Accept: application/json
+
+### Fame's products
+GET http://localhost:8080/products/fetch-product?name=Fame
+Accept: application/json
+
+### Lame's products
+GET http://localhost:8080/products/fetch-product?name=Lame
+Accept: application/json

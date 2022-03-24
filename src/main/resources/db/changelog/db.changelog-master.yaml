@@ -1,7 +1,13 @@
-#databaseChangeLog:
-#  - include:
-#      file: migrations/001-schema.sql
-#      relativeToChangelogFile: yes
-#  - include:
-#      file: migrations/002-sample.xml
-#      relativeToChangelogFile: yes
+databaseChangeLog:
+  - include:
+      file: migrations/001-customers-schema.sql
+      relativeToChangelogFile: yes
+  - include:
+      file: migrations/002-orders-schema.sql
+      relativeToChangelogFile: yes
+  - include:
+      file: migrations/003-customers-data.sql
+      relativeToChangelogFile: yes
+  - include:
+      file: migrations/004-orders-data.sql
+      relativeToChangelogFile: yes

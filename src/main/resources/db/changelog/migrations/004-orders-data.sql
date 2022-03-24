@@ -1,13 +1,3 @@
-# use enterprise;
-insert into customers
-    (name, surname, age, phone_number)
-values ('Ame', 'Sury', 19, '+93789'),
-       ('Bame', 'Suro', 29, '+93723'),
-       ('Game', 'Suri', 50, '+94899'),
-       ('Came', 'Sura', 33, '+95734'),
-       ('Dame', 'Suru', 26, '+94483'),
-       ('Fame', 'Sure', 25, '+93156');
-
 insert into orders
     (date, customer_id, product_name, amount)
 values ('1998-05-05 13:28:00', 3, 'stuff', 8),

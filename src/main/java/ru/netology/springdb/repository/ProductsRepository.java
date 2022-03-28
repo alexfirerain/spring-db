@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.netology.springdb.entity.Order;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,14 +21,27 @@ import java.util.stream.Collectors;
 public class ProductsRepository {
     private static final String productByNameRequest = read("productByNameRequest.sql");
 
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    @PersistenceContext
+    EntityManager enterpriseDispatcher;
 
     public List<String> getProductName(String customersName) {
-        return namedParameterJdbcTemplate.queryForList(productByNameRequest,
-                Map.of("name", customersName),
-                String.class);
+        return enterpriseDispatcher
+                .createQuery(
+                        "select o from Order o inner join fetch Customer c on o.customerId = c where c.name = :name",
+                        Order.class)
+                .setParameter("name", customersName)
+                .getResultList().stream().map(Order::getProductName).collect(Collectors.toList());
     }
+
+
+//    @Autowired
+//    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+//
+//    public List<String> getProductName(String customersName) {
+//        return namedParameterJdbcTemplate.queryForList(productByNameRequest,
+//                Map.of("name", customersName),
+//                String.class);
+//    }
 
     private static String read(String scriptFileName) {
         try (InputStream is = new ClassPathResource(scriptFileName).getInputStream();

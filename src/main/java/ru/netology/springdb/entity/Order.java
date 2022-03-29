@@ -1,6 +1,9 @@
 package ru.netology.springdb.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -21,6 +24,7 @@ public class Order {
     private Date date;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "customer_id")
     private Customer customerId;
 
     private String productName;

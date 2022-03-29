@@ -1,4 +1,4 @@
-insert into `order`
+insert into orders
     (date, customer_id, product_name, amount)
 values ('1998-05-05 13:28:00', 3, 'stuff', 8),
        ('2003-12-12 22:54:56', 1, 'staff', 6),

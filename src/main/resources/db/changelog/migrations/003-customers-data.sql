@@ -1,4 +1,4 @@
-insert into customer
+insert into customers
     (name, surname, age, phone_number)
 values ('Ame', 'Sury', 19, '+93789'),
        ('Bame', 'Suro', 29, '+93723'),

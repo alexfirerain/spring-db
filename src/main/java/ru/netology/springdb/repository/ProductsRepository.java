@@ -27,10 +27,11 @@ public class ProductsRepository {
     public List<String> getProductName(String customersName) {
         return enterpriseDispatcher
                 .createQuery(
-                        "select o from Order o inner join fetch Customer c where c.name = :name",
-                        Order.class)
+                        "select o.productName from Order o where o.customerId.name = :name",
+                        String.class)
                 .setParameter("name", customersName)
-                .getResultList().stream().map(Order::getProductName).collect(Collectors.toList());
+                .getResultList();
+//                .stream().map(Order::getProductName).collect(Collectors.toList());
     }
 
 
